@@ -26,6 +26,7 @@ function SecurityCheck({ adminId, posterId }) {
   };
 
   const handleSubmit = async (values, formik) => {
+    console.log(values);
     const url = `${API_URL}/skip`;
 
     const res = await fetch(url, {
@@ -38,6 +39,7 @@ function SecurityCheck({ adminId, posterId }) {
     });
 
     const data = await res.json();
+    console.log(data);
 
     if (res.ok) {
       console.log("success", data);

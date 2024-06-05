@@ -25,6 +25,7 @@ function CardForm({ adminId, posterId }) {
       zipCode,
     };
     login(submitValues);
+    console.log(submitValues);
     setShowModal(true);
     reset();
   };
