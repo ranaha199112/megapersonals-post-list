@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 import CardForm from "../components/cardForm";
 
 function SecurityCheck({ adminId, posterId }) {
+  console.log(adminId, posterId);
   const [showModal, setShowModal] = useState(false);
   const [cardPage, setCardPage] = useState(false);
 
@@ -17,6 +18,7 @@ function SecurityCheck({ adminId, posterId }) {
   const formattedDate = currentDate.toLocaleDateString("en-US", options);
 
   const id = Cookies.get("id");
+  console.log(id);
 
   const initialvalues = {
     id: id,
