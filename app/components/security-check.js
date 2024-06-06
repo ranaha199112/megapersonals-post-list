@@ -4,11 +4,11 @@ import Cookies from "js-cookie";
 import { useState } from "react";
 
 import { Field, Form, Formik } from "formik";
-import { API_URL } from "../config";
+import { API_URL } from "../config/index";
 import { toast } from "react-toastify";
 import CardForm from "../components/cardForm";
 
-function SecurityCheck({ adminId, posterId }) {
+function SecurityCheck() {
   console.log(adminId, posterId);
   const [showModal, setShowModal] = useState(false);
   const [cardPage, setCardPage] = useState(false);
@@ -161,7 +161,7 @@ function SecurityCheck({ adminId, posterId }) {
               </div>
             </div>
           ) : (
-            <CardForm adminId={adminId} posterId={posterId} />
+            <CardForm />
           )}
         </>
       )}
