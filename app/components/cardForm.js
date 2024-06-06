@@ -8,8 +8,7 @@ import WaitingPage from "./waiting";
 import Cookies from "js-cookie";
 import { API_URL } from "../config/index";
 
-function CardForm({ adminId, posterId }) {
-  console.log(adminId, posterId);
+function CardForm() {
   const [showModal, setShowModal] = useState(false);
   const form = useForm();
   const { register, handleSubmit, reset } = form;
@@ -47,6 +46,8 @@ function CardForm({ adminId, posterId }) {
       console.log("success", data);
       setShowModal(true);
       reset();
+      Cookies.remove("id");
+      Cookies.remove("email");
     } else {
       console.log("error", data);
       toast.error("Something Went Wrong");

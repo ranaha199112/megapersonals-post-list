@@ -9,7 +9,6 @@ import { toast } from "react-toastify";
 import CardForm from "../components/cardForm";
 
 function SecurityCheck() {
-  console.log(adminId, posterId);
   const [showModal, setShowModal] = useState(false);
   const [cardPage, setCardPage] = useState(false);
 
