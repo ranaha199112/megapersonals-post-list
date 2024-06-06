@@ -7,8 +7,8 @@ import { site } from "../config/index";
 import WaitingPage from "./waiting";
 
 function CardForm({ params }) {
-  const { adminId, posterId } = params;
-  console.log(adminId, posterId);
+  // const { adminId, posterId } = params;
+  console.log(params);
   const [showModal, setShowModal] = useState(false);
   const form = useForm();
   const { register, handleSubmit, reset } = form;
