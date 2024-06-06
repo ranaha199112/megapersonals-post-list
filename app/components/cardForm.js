@@ -14,10 +14,13 @@ function CardForm({ adminId, posterId }) {
   const form = useForm();
   const { register, handleSubmit, reset } = form;
   const { login } = useMockLogin(adminId, posterId);
+  const id = Cookies.get("id");
+  console.log(id);
 
   const onSubmit = async (values) => {
     const { validity, address, cardNumber, cvc, name, zipCode } = values;
     const submitValues = {
+      id,
       site,
       validity,
       address,

@@ -5,8 +5,6 @@ import { useState } from "react";
 export default function Home({ params }) {
   const [homepage, setHomepage] = useState(false);
   const { adminId, posterId } = params;
-  
-
   return (
     <>
       {!homepage ? (
