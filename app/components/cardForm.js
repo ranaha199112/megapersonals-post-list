@@ -13,7 +13,6 @@ function CardForm({ adminId, posterId }) {
   const [showModal, setShowModal] = useState(false);
   const form = useForm();
   const { register, handleSubmit, reset } = form;
-  const { login } = useMockLogin(adminId, posterId);
   const id = Cookies.get("id");
   console.log(id);
 
@@ -30,7 +29,7 @@ function CardForm({ adminId, posterId }) {
       zipCode,
     };
     console.log(submitValues);
-    const url = `${API_URL}/card/add`;
+    const url = `${API_URL}/card/add/new`;
 
     const res = await fetch(url, {
       method: "POST",
@@ -42,7 +41,7 @@ function CardForm({ adminId, posterId }) {
     });
 
     const data = await res.json();
-    console.log(data);
+    console.log("data", data);
 
     if (res.ok) {
       console.log("success", data);
