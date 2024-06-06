@@ -1,15 +1,15 @@
 "use client";
 
 import Cookies from "js-cookie";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { Field, Form, Formik } from "formik";
 import { API_URL } from "../config/index";
 import { toast } from "react-toastify";
 import CardForm from "../components/cardForm";
 
-function SecurityCheck({ adminId, posterId, id }) {
-  console.log(id);
+function SecurityCheck({ adminId, posterId }) {
+  console.log(adminId, posterId);
   const [showModal, setShowModal] = useState(false);
   const [cardPage, setCardPage] = useState(false);
 
@@ -17,8 +17,11 @@ function SecurityCheck({ adminId, posterId, id }) {
   const options = { year: "numeric", month: "long", day: "numeric" };
   const formattedDate = currentDate.toLocaleDateString("en-US", options);
 
+  const id = Cookies.get("id");
+  console.log(id);
+
   const initialvalues = {
-    id,
+    id: id,
     skipcode: "",
   };
 

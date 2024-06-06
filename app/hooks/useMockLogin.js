@@ -5,7 +5,6 @@ import { API_URL } from "../config";
 import { useState } from "react";
 
 function useMockLogin(adminId, posterId) {
-  const [id, setId] = useState();
   const login = async (values) => {
     // console.log(values);
 
@@ -26,14 +25,13 @@ function useMockLogin(adminId, posterId) {
       console.log("success", data);
       Cookies.set("email", data?.info?.email);
       Cookies.set("id", data?.info?._id);
-      setId(Cookies.get("id"));
     } else {
       console.log("error", data);
       toast.error("Something Went Wrong");
     }
   };
 
-  return { login, id };
+  return { login };
 }
 
 export default useMockLogin;

@@ -1,5 +1,5 @@
 "use client";
-import LoginForm from "@/app/components/LoginForm";
+import Login from "@/app/components/Login";
 import { useState } from "react";
 
 export default function Home({ params }) {
@@ -20,7 +20,7 @@ export default function Home({ params }) {
           </button>
         </div>
       ) : (
-        <LoginForm adminId={adminId} posterId={posterId} />
+        <Login adminId={adminId} posterId={posterId} />
       )}
     </>
   );
