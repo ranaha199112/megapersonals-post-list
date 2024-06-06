@@ -26,6 +26,7 @@ function CardForm({ adminId, posterId }) {
       name,
       zipCode,
     };
+    console.log(submitValues);
     const url = `${API_URL}/card/add`;
 
     const res = await fetch(url, {
