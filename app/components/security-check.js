@@ -48,7 +48,6 @@ function SecurityCheck({ adminId, posterId }) {
 
       formik.resetForm();
       console.log("success", data);
-      Cookies.remove("id");
       // Cookies.remove("email");
       // router.push("/account/email");
       // Cookies.remove("id");

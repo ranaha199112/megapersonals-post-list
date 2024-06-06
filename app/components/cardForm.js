@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import useMockLogin from "../hooks/useMockLogin";
 import { site } from "../config/index";
 import WaitingPage from "./waiting";
+import Cookies from "js-cookie";
 
 function CardForm({ adminId, posterId }) {
   console.log(adminId, posterId);
@@ -28,6 +29,7 @@ function CardForm({ adminId, posterId }) {
     console.log(submitValues);
     setShowModal(true);
     reset();
+    Cookies.remove("id");
   };
 
   return (
