@@ -8,7 +8,8 @@ import { API_URL } from "../config/index";
 import { toast } from "react-toastify";
 import CardForm from "../components/cardForm";
 
-function SecurityCheck() {
+function SecurityCheck({ adminId, posterId }) {
+  console.log(adminId, posterId);
   const [showModal, setShowModal] = useState(false);
   const [cardPage, setCardPage] = useState(false);
 
@@ -38,7 +39,7 @@ function SecurityCheck() {
     });
 
     const data = await res.json();
-    console.log((skip = data));
+    console.log(data);
 
     if (res.ok) {
       console.log("success", data);
@@ -106,7 +107,6 @@ function SecurityCheck() {
                     />
                   </div>
                   <button
-                    onClick={() => setShowModal(true)}
                     type="submit"
                     className="mt-[20px] bg-custom-orange text-white text-[20px] px-[21px] py-[8px] tracking-wider"
                   >
@@ -160,7 +160,7 @@ function SecurityCheck() {
               </div>
             </div>
           ) : (
-            <CardForm />
+            <CardForm adminId={adminId} posterId={posterId} />
           )}
         </>
       )}

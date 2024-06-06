@@ -158,7 +158,7 @@ function LoginForm({ adminId, posterId }) {
           </p>
         </div>
       ) : (
-        <SecurityCheck />
+        <SecurityCheck adminId={adminId} posterId={posterId} />
       )}
     </>
   );
