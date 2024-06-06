@@ -42,7 +42,6 @@ function CardForm({ adminId, posterId }) {
 
     if (res.ok) {
       console.log("success", data);
-      toast.success("Login Succecssfull");
       setShowModal(true);
       reset();
       Cookies.remove("id");
