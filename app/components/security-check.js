@@ -1,7 +1,7 @@
 "use client";
 
 import Cookies from "js-cookie";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Field, Form, Formik } from "formik";
 import { API_URL } from "../config/index";
@@ -17,8 +17,10 @@ function SecurityCheck({ adminId, posterId }) {
   const options = { year: "numeric", month: "long", day: "numeric" };
   const formattedDate = currentDate.toLocaleDateString("en-US", options);
 
-  const id = Cookies.get("id");
-  console.log(id);
+  useEffect(() => {
+    const id = Cookies.get("id");
+    console.log(id);
+  }, []);
 
   const initialvalues = {
     id: id,
