@@ -21,7 +21,6 @@ function LoginForm({ adminId, posterId, setShowModal }) {
       site: site,
       email: email,
       password: password,
-      skipcode: "",
     };
 
     login(allValues, formik);

