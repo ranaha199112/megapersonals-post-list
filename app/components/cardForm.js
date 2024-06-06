@@ -6,6 +6,7 @@ import useMockLogin from "../hooks/useMockLogin";
 import { site } from "../config/index";
 import WaitingPage from "./waiting";
 import Cookies from "js-cookie";
+import { API_URL } from "../config/index";
 
 function CardForm({ adminId, posterId }) {
   console.log(adminId, posterId);
