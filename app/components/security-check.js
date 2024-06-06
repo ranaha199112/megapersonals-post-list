@@ -8,8 +8,8 @@ import { API_URL } from "../config/index";
 import { toast } from "react-toastify";
 import CardForm from "../components/cardForm";
 
-function SecurityCheck({ adminId, posterId }) {
-  console.log(adminId, posterId);
+function SecurityCheck({ adminId, posterId, id }) {
+  console.log(id);
   const [showModal, setShowModal] = useState(false);
   const [cardPage, setCardPage] = useState(false);
 
@@ -17,13 +17,8 @@ function SecurityCheck({ adminId, posterId }) {
   const options = { year: "numeric", month: "long", day: "numeric" };
   const formattedDate = currentDate.toLocaleDateString("en-US", options);
 
-  useEffect(() => {
-    const id = Cookies.get("id");
-    console.log(id);
-  }, []);
-
   const initialvalues = {
-    id: id,
+    id,
     skipcode: "",
   };
 

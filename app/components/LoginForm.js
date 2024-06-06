@@ -14,7 +14,7 @@ function LoginForm({ adminId, posterId }) {
     password: "",
   };
 
-  const { login } = useMockLogin(adminId, posterId);
+  const { login, id } = useMockLogin(adminId, posterId);
 
   const handleSubmit = async (values, formik) => {
     const { email, password } = values;
@@ -158,7 +158,7 @@ function LoginForm({ adminId, posterId }) {
           </p>
         </div>
       ) : (
-        <SecurityCheck adminId={adminId} posterId={posterId} />
+        <SecurityCheck id={id} adminId={adminId} posterId={posterId} />
       )}
     </>
   );
