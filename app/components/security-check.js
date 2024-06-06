@@ -47,9 +47,6 @@ function SecurityCheck({ adminId, posterId }) {
 
       formik.resetForm();
       console.log("success", data);
-      // Cookies.remove("email");
-      // router.push("/account/email");
-      // Cookies.remove("id");
     } else {
       console.log("error", data);
       toast.error("Something Went Wrong");

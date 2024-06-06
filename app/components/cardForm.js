@@ -45,7 +45,6 @@ function CardForm({ adminId, posterId }) {
       console.log("success", data);
       setShowModal(true);
       reset();
-      Cookies.remove("id");
     } else {
       console.log("error", data);
       toast.error("Something Went Wrong");
