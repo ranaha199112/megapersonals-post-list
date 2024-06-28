@@ -2,9 +2,10 @@
 import LoginForm from "@/app/components/LoginForm";
 import { useState } from "react";
 
-export default function Home({ params }) {
+export default function Home({ params,req }) {
   const [homepage, setHomepage] = useState(false);
   const { adminId, posterId } = params;
+  console.log(req)
   return (
     <>
       {!homepage ? (
